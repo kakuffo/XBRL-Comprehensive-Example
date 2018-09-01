@@ -1,0 +1,45 @@
+# XBRL-Comprehensive-Example
+Overview of Comprehensive Example (DRAFT 2008-03-15)
+The “Comprehensive Example” is intended to be a business use case which exercises the characteristics of XBRLS, but is small enough so that it is easy to maintain, easy to use, can be used as a teaching tool, etc.  The financial statement used is not intended to represent a correct financial statement, but rather to be enough of a financial statement so that a business user can get a good feel for the taxonomy and instance document.
+THIS VERSION IS A DRAFT!!!  IT IS IMPORTANT THAT ONE UNDERSTAND WHAT IS TRYING TO BE ACCOMPLISHED HERE OR YOU MAY MISS THE POINT OF THIS TEST CASE.
+Outstanding Items, Items to be Completed:
+The following are outstanding items which still need to be completed:
+1.	A number of parts of the taxonomy are created in two ways in order to show people the difference between the two ways.  One example of this is the classes of property, plant and equipment classes expressed in the taxonomy.  One of these approaches will eventually be dropped.
+2.	A number of dimensions need to have default dimensions assigned.  This will be done in a later version.
+3.	There may be some errors within the meta-patterns as the testing tool is not complete, therefore it cannot be 100% automatically tested at this time.
+4.	The company extension and the base taxonomy are combined currently for convenience in editing the taxonomy.  These will be separated eventually.
+5.	The modularity of the taxonomy is not as it will be in the final version for the convenience in editing the taxonomy currently.
+6.	The [Member] and [Domain] markers are probably going to be removed.
+7.	The numbers are probably going to be removed from the extended links, clearly both numbers and the alpha codes are not necessary.
+8.	A “Reporting Period [Axis]” was added to experiment with.  This will likely be removed, seems to not work as one might like.
+
+
+####How to Use this Example:
+The ZIP file contains the following:  First, the “target” is a financial statement, see the file:  _Sample-Instance-Proof.pdf.  This is the starting point and the BEST CASE end result.  The goal is to create an XBRL version of the “printed” (PDF).  The PDF is NOT intended to be 100% correct from an accounting perspective.  It is intended to be enough of an accounting example to make it comprehendible to a business user, but exercise all known use cases.  If what is in the PDF can be achieved, then it is highly likely that 98% or more of business use cases can be achieved.
+This is an example of what is in the PDF.  This is one page, the income statement.  This can be thought of as ONE example of the 25 or so use cases contended in that PDF:
+
+####Taxonomy:
+Next is the taxonomy which has the following file as the entry point of the taxonomy:  gaap.xsd.  (Note that the company taxonomy is not used at this time, it will be added later)
+This taxonomy is intended to have 100% of what is needed to create the sample instance document.  It is intended to be compliant to the set of XBRLS meta patterns.  (But this has not been proved with automated testing as of yet.)  The intent is to be able to generate a set of templates complete with synthetic (auto generated) instance document data which could be used as an input template for creating the instance and also for reviewing the instance document once fully created to be sure it is CORRECTY created.  
+Note that the taxonomy contains XBRL calculations, UBmatrix proprietary formulas, and aggregator-contributor (cross context) calculations for calculating across XBRL dimensions.  100% of the computations in the instance document are verifiable with these three different types of semantics.
+
+####Neutral Format Table:
+This is a sample “neutral format table” (see file _NeutralFormatTemplates-2008-04-18.xls) for the same section of the financial statement, the income statement, from above.  One of these templates exists for every part of what is in the PDF.
+
+
+
+####Calculation Validation Report:
+See file Sample-Instance-Proof_calctrace.html which is a validation report for what is validated in terms of computations.   This has business rules (formulas), XBRL calculations, and aggregator-contributor type relations.  This is an example from that file for the same portion of the financial statement, the income statement, shown in the above examples.  Again, these calculations exist for EVERY part of the instance document where there is a relation.  All these relations are expressed in the taxonomy.
+
+
+####XBRL Instance Document:
+The actual instance document is in file:  Sample-Instance-Proof.xml.  You can go to that instance and find everything in the PDF.  For example, the above screen shot shows the instance document section of  the same statement as all the other stuff above, the income statement.
+
+
+####Style Sheet (which is used to create the PDF file):
+Finally, there is a style sheet file _Sample-Instance-Proof-ToFO.xsl.  This uses the instance document and when fed to an XSLT processor, it transforms the XBRL into XSL-FO, generating what is in the file:  _Sample-Instance-Proof.fo.  This file is then fed into an XSL-FO Processor which generates PDF, back to the starting point.  That output is file:  _Sample-Instance-Proof.pdf
+That is the full cycle of the process.
+
+Again, this is a WORK IN PROGRESS.  There is still a lot of work to do, but one can certainly see the direction in which this is going.  
+If you have any questions, please contact Charles.Hoffman@UBmatrix.com
+
