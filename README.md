@@ -43,3 +43,21 @@ That is the full cycle of the process.
 Again, this is a WORK IN PROGRESS.  There is still a lot of work to do, but one can certainly see the direction in which this is going.  
 If you have any questions, please contact Charles.Hoffman@UBmatrix.com
 
+##Comprehensive Example (2008-04-18)
+
+This is an example XBRL instance document.  The purpose of the example is to experiment and try and see how to best make XBRL work.  The example takes each of the XBRLS business use cases, combines them into one taxonomy and instance document.  The example is large enough to look real, but small enough to be a sample.  The following are the components of this example:
+
+####Printed Financial Statement:  (_Sample-Instance-Proof.pdf) This PDF was generated from the instance document (2) and the style sheet (3).
+
+####Instance Document: (Sample-Instance-Proof.xml) This is the XBRL instance document.
+
+####Style Sheet: (_Sample-Instance-Proof-ToFO.xsl)  This is a style sheet which was used to transform the XBRL (2) into PDF (1).
+####XSL-FO: (_Sample-Instance-Proof.fo) This is an intermediate format used go get from the style sheet (3) to the PDF (1).  The XSLT in the style sheet generates XSL-FO.  That is sent to an FO processor (FOP) which is what actually generates the PDF.
+Taxonomy: (gaap.xsd) This is the taxonomy schema file. Links to the label, references, presentation, calculation, definition, and formulas used can be found within this schema.
+####Complex Types: (gaap-ComplexTypes.xsd) This is also a schema.  This contains a number of types defined using XML Schema Part 2.
+XBRL Formulas: (gaap-formula.xml) This is an XBRL Formulas linkbase which has a lot, but not all, of the formulas which are used in this financial statement.  This still needs more work and is moving around as XBRL Formulas is still not a recommendation.
+####Calculations Report: (Sample-Instance-Proof_calctrace.html) This is an valiation report for the instance documents, showing the calculations which were validated by the XBRL processor.  The XBRL Formulas validation are not shown on this report.
+Neutral Format Tables: (_NeutralFormatTemplates-2008-10-10.xls) These are neutral format tables for every section of the instance document. The purpose of this is to show a minimally acceptable rendering of the instance document information with no bias to any type specific rendering characteristics.  This rendering is creatable from information contained within the taxonomy and the instance document. This was hand generated, a theoretical output of an XBRL processor which I believe is possible.
+ReadMe (ReadMe.doc) This is a readme file which explains the example.
+####ZIP File Containing all Files: (XBRLS-ComprehensiveExample-2008-04-18.zip) This is a ZIP file which can be downloaded to grab all of the files mentioned above.
+There are a few other files in the ZIP file but they really are not that interesting.  Note that due to issues relating to default dimensions, this instance document is not 100% representative of what a good instance document would look like.  There are a number of duplicate concepts.
